@@ -4,31 +4,29 @@
  * and imports for stencil collections that might be configured in your stencil.config.js file
  */
 
-import { MyName as MyName } from './components/my-name/my-name';
+import { Voice2Text as StVoice2text } from './components/st-voice2text/st-voice2text';
 
-interface HTMLMyNameElement extends MyName, HTMLElement {
+interface HTMLStVoice2textElement extends StVoice2text, HTMLElement {
 }
-declare var HTMLMyNameElement: {
-  prototype: HTMLMyNameElement;
-  new (): HTMLMyNameElement;
+declare var HTMLStVoice2textElement: {
+  prototype: HTMLStVoice2textElement;
+  new (): HTMLStVoice2textElement;
 };
 declare global {
   interface HTMLElementTagNameMap {
-      "my-name": HTMLMyNameElement;
+      "st-voice2text": HTMLStVoice2textElement;
   }
   interface ElementTagNameMap {
-      "my-name": HTMLMyNameElement;
+      "st-voice2text": HTMLStVoice2textElement;
   }
   namespace JSX {
       interface IntrinsicElements {
-          "my-name": JSXElements.MyNameAttributes;
+          "st-voice2text": JSXElements.StVoice2textAttributes;
       }
   }
   namespace JSXElements {
-      export interface MyNameAttributes extends HTMLAttributes {
+      export interface StVoice2textAttributes extends HTMLAttributes {
         
-          first?: any,
-          last?: any
       }
   }
 }
