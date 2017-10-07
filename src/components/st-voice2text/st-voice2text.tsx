@@ -1,4 +1,4 @@
-import { Component, State } from '@stencil/core';
+import { Component, State, Prop } from '@stencil/core';
 
 
 @Component({
@@ -7,8 +7,10 @@ import { Component, State } from '@stencil/core';
 })
 export class Voice2Text {
 
+  @Prop() lang: string = 'es-ES';
 
-  @State() recognition: any;
+  @State() recognition : any;
+  @State() started     : boolean = false;
 
   componentDidLoad() {
     if ('webkitSpeechRecognition' in window) {
@@ -26,23 +28,25 @@ export class Voice2Text {
   }
 
   start() {
-    this.recognition.lang = 'es-ES';
+    this.started = true;
+    this.recognition.lang = this.lang;
     this.recognition.start();
   }
 
   stop() {
+    this.started = false;
     this.recognition.stop();
   }
 
   render() {
     return (
       <div>
-        <button onClick={() => this.start()}>
-          Start
-        </button>
-        <button onClick={() => this.stop()}>
-          Stop
-        </button>
+        {
+          this.started === false ?
+          (<button onClick={() => this.start()}>Start</button>)
+          :
+          (<button onClick={() => this.stop()}>Stop</button>)
+        }
       </div>
     );
   }
