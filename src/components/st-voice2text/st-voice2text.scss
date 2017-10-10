@@ -1,5 +1,15 @@
+st-voice2text {
+  .container {
+    position: relative;
 
-my-name {
-  font-family: Courier New, Courier, monospace;
-  font-weight: bold;
+    input {
+      border: 0;
+      border-bottom: 1px solid black;
+    }
+
+    button {
+      position: absolute;
+      margin-left: 5px;
+    }
+  }
 }

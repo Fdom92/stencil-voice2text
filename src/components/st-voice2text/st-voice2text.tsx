@@ -9,10 +9,12 @@ export class Voice2Text {
 
   @Prop() lang: string = 'es-ES';
 
+  @State() input       : any;
   @State() recognition : any;
   @State() started     : boolean = false;
 
   componentDidLoad() {
+    this.input = document.getElementById('voice2text-input');
     if ('webkitSpeechRecognition' in window) {
       this.recognition = new webkitSpeechRecognition();
       this.recognition.continuous = true;
@@ -20,7 +22,7 @@ export class Voice2Text {
 
       this.recognition.onerror = function(err) { console.log(err) }
       this.recognition.onresult = function(event) {
-        console.log(event.results[0][0].transcript);
+        this.input = event.results[0][0].transcript;
       }
     } else {
       console.log('webkitSpeechRecognition not supported :(');
@@ -40,7 +42,8 @@ export class Voice2Text {
 
   render() {
     return (
-      <div>
+      <div class="container">
+        <input type="text" id="voice2text-input"></input>
         {
           this.started === false ?
           (<button onClick={() => this.start()}>Start</button>)
