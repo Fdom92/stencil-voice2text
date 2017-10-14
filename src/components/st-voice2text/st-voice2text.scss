@@ -1,14 +1,17 @@
 st-voice2text {
   .container {
     position: relative;
+    display: inline-block;
+    background-color: #e6e6e6;
+    padding: 5px;
 
     input {
       border: 0;
+      background-color: #e6e6e6;
       border-bottom: 1px solid black;
     }
 
     button {
-      position: absolute;
       margin-left: 5px;
     }
   }
