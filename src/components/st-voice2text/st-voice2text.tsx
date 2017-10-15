@@ -1,4 +1,4 @@
-import { Component, State, Prop, Element } from '@stencil/core';
+import { Component, State, Prop, Element, Listen } from '@stencil/core';
 
 
 @Component({
@@ -7,14 +7,32 @@ import { Component, State, Prop, Element } from '@stencil/core';
 })
 export class Voice2Text {
 
-  @Prop() lang: string = 'es-ES';
-
   @Element() element;
+
+  @Prop() lang       : string  = 'es-ES';
+  @Prop() showAlways : boolean = true;
 
   @State() recognition : any;
   @State() started     : boolean = false;
 
+  @Listen('focusin')
+  focusOut() {
+    if (!this.showAlways) {
+      document.getElementById('voice2text').classList.remove('autohide');
+    }
+  }
+
+  @Listen('focusout')
+  focusIn() {
+    if (!this.showAlways) {
+      document.getElementById('voice2text').classList.add('autohide');
+    }
+  }
+
   componentDidLoad() {
+    if (!this.showAlways) {
+      document.getElementById('voice2text').classList.add('autohide');
+    }
     if ('webkitSpeechRecognition' in window) {
       this.recognition = new webkitSpeechRecognition();
       this.recognition.continuous = true;
@@ -46,11 +64,11 @@ export class Voice2Text {
         <slot />
         {
           this.started === false ?
-          (<button onClick={() => this.start()}>
+          (<button id="voice2text" onClick={() => this.start()}>
             <img src="../assets/microphone.svg" alt="Start speech recognition button"/>
           </button>)
           :
-          (<button onClick={() => this.stop()}>
+          (<button id="voice2text" onClick={() => this.stop()}>
             <img src="../assets/muted.svg" alt="Stop speech recognition button"/>
           </button>)
         }

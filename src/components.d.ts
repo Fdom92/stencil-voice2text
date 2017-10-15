@@ -27,7 +27,8 @@ declare global {
   namespace JSXElements {
       export interface StVoice2textAttributes extends HTMLAttributes {
         
-          lang?: any
+          lang?: any,
+          showAlways?: boolean | "true" | "false"
       }
   }
 }

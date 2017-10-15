@@ -11,6 +11,10 @@ st-voice2text {
         height: 20px;
         width: 20px;
       }
+
+      &.autohide {
+        display: none;
+      }
     }
   }
 }
