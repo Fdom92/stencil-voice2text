@@ -1,4 +1,4 @@
-import { Component, State, Prop } from '@stencil/core';
+import { Component, State, Prop, Element } from '@stencil/core';
 
 
 @Component({
@@ -9,6 +9,8 @@ export class Voice2Text {
 
   @Prop() lang: string = 'es-ES';
 
+  @Element() element;
+
   @State() recognition : any;
   @State() started     : boolean = false;
 
@@ -18,10 +20,10 @@ export class Voice2Text {
       this.recognition.continuous = true;
       this.recognition.interimResults = true;
 
-      this.recognition.onerror = function(err) { console.log(err) }
+      this.recognition.onerror = function(err) { console.error(err) }
       this.recognition.onresult = function(event) {
-        document.getElementById('voice2text-input')['value'] = event.results[0][0].transcript;
-      }
+        this.element.querySelector('input[type=text]').value = event.results[0][0].transcript;
+      }.bind(this);
     } else {
       console.log('webkitSpeechRecognition not supported :(');
     }
@@ -41,12 +43,16 @@ export class Voice2Text {
   render() {
     return (
       <div class="container">
-        <input type="text" id="voice2text-input"></input>
+        <slot />
         {
           this.started === false ?
-          (<button onClick={() => this.start()}>Start</button>)
+          (<button onClick={() => this.start()}>
+            <img src="../assets/microphone.svg" alt="Start speech recognition button"/>
+          </button>)
           :
-          (<button onClick={() => this.stop()}>Stop</button>)
+          (<button onClick={() => this.stop()}>
+            <img src="../assets/muted.svg" alt="Stop speech recognition button"/>
+          </button>)
         }
       </div>
     );
