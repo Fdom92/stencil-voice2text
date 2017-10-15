@@ -14,6 +14,7 @@ export class Voice2Text {
 
   @State() recognition : any;
   @State() started     : boolean = false;
+  @State() existApi    : boolean;
 
   @Listen('focusin')
   focusOut() {
@@ -34,6 +35,7 @@ export class Voice2Text {
       document.getElementById('voice2text').classList.add('autohide');
     }
     if ('webkitSpeechRecognition' in window) {
+      this.existApi = true;
       this.recognition = new webkitSpeechRecognition();
       this.recognition.continuous = true;
       this.recognition.interimResults = true;
@@ -43,7 +45,7 @@ export class Voice2Text {
         this.element.querySelector('input[type=text]').value = event.results[0][0].transcript;
       }.bind(this);
     } else {
-      console.log('webkitSpeechRecognition not supported :(');
+      this.existApi = false;
     }
   }
 
@@ -59,20 +61,22 @@ export class Voice2Text {
   }
 
   render() {
-    return (
-      <div class="container">
-        <slot />
-        {
-          this.started === false ?
-          (<button id="voice2text" onClick={() => this.start()}>
-            <img src="../assets/microphone.svg" alt="Start speech recognition button"/>
-          </button>)
-          :
-          (<button id="voice2text" onClick={() => this.stop()}>
-            <img src="../assets/muted.svg" alt="Stop speech recognition button"/>
-          </button>)
-        }
-      </div>
-    );
+    if (this.existApi) {
+      return (
+        <div class="container">
+          <slot />
+          {
+            this.started === false ?
+            (<button id="voice2text" onClick={() => this.start()}>
+              <img src="../assets/microphone.svg" alt="Start speech recognition button"/>
+            </button>)
+            :
+            (<button id="voice2text" onClick={() => this.stop()}>
+              <img src="../assets/muted.svg" alt="Stop speech recognition button"/>
+            </button>)
+          }
+        </div>
+      );
+    }
   }
 }
