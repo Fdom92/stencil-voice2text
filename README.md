@@ -25,7 +25,7 @@ npm start
 
 ### Script tag
 
-- Put `<script src='https://unpkg.com/stencil-voice2text@0.0.2/dist/voice2text.js'></script>` in the head of your index.html
+- Put `<script src='https://unpkg.com/stencil-voice2text@0.0.4/dist/voice2text.js'></script>` in the head of your index.html
 - Then you can use the element `<st-voice2text>` anywhere in your template, JSX, html etc
 
 ### Node Modules
@@ -62,7 +62,17 @@ Here is an example with an ion-input:
 
 ## Parameters
 
-#### continuous
+### enabled
+
+The default value for enabled is true, meaning that the voice to text is available.
+
+```html
+<st-voice2text enabled={true}>
+    <input type="text"></input>
+</st-voice2text>
+```
+
+### continuous
 
 The default value for continuous is false, meaning that when the user stops talking, speech recognition will end.
 
@@ -72,7 +82,7 @@ The default value for continuous is false, meaning that when the user stops talk
 </st-voice2text>
 ```
 
-#### lang
+### lang
 
 The default value for lang is `en-US`, meaning that the component will recognize english if no one is passed as attribute.
 
