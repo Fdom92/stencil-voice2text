@@ -9,8 +9,8 @@ export class Voice2Text {
 
   @Element() element;
 
-  @Prop() lang       : string  = 'es-ES';
-  @Prop() continuous : boolean = true;
+  @Prop() lang       : string  = 'en-US';
+  @Prop() continuous : boolean = false;
 
   @State() recognition : any;
   @State() existApi    : boolean;

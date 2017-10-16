@@ -38,11 +38,54 @@ npm start
 - Add `{ name: 'stencil-voice2text' }` to your [collections](https://github.com/ionic-team/stencil-starter/blob/master/stencil.config.js#L5)
 - Then you can use the element `<st-voice2text>` anywhere in your template, JSX, html etc
 
+### Make it works
+
+To make this component works, you should pass an input (or ion-input if you are working with ionic) because at the moment an empty component and add a default input is not working.
+
+Here is an example with an input:
+
+```html
+<st-voice2text continuous={true}>
+    <input type="text"></input>
+</st-voice2text>
+```
+
+Here is an example with an ion-input:
+
+> I assume you have imported ionic collection
+
+```html
+<st-voice2text continuous={true}>
+    <ion-input></ion-input>
+</st-voice2text>
+```
 
 ## Parameters
 
+#### continuous
+
+The default value for continuous is false, meaning that when the user stops talking, speech recognition will end.
+
+```html
+<st-voice2text continuous={true}>
+    <input type="text"></input>
+</st-voice2text>
+```
+
 #### lang
 
-You can set the language to recognize with this attribute on the component. This is an example setting with english:
+The default value for lang is `en-US`, meaning that the component will recognize english if no one is passed as attribute.
 
-`<st-voice2text lang="en-US"></st-voice2text>`
+```html
+<st-voice2text lang="es-ES">
+    <input type="text"></input>
+</st-voice2text>
+```
+
+## Customize
+
+You can customize it with this css classes:
+
+#### inactive
+
+This class is used to show or hide the button that is not used. If you start recording, the start button will have the inactive class.
