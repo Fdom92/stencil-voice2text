@@ -10,6 +10,7 @@ export class Voice2Text {
   @Element() element;
 
   @Prop() lang       : string  = 'es-ES';
+  @Prop() continuous : boolean = true;
 
   @State() recognition : any;
   @State() existApi    : boolean;
@@ -19,7 +20,7 @@ export class Voice2Text {
       this.existApi = true;
 
       this.recognition = new webkitSpeechRecognition();
-      this.recognition.continuous = true;
+      this.recognition.continuous = this.continuous;
       this.recognition.interimResults = true;
       this.recognition.lang = this.lang;
 
