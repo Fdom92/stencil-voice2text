@@ -25,69 +25,45 @@ npm start
 
 ### Script tag
 
-- Put `<script src='https://unpkg.com/stencil-voice2text@0.0.4/dist/voice2text.js'></script>` in the head of your index.html
-- Then you can use the element `<st-voice2text>` anywhere in your template, JSX, html etc
+- Put `<script src='https://unpkg.com/stencil-voice2text@latest/dist/voice2text.js'></script>` in the head of your index.html
+- Then you can use the element like this:
+```html
+<st-voice2text>
+    <input type="text"></input>
+</st-voice2text>
+```
 
 ### Node Modules
 - Run `npm install stencil-voice2text --save`
 - Put a script tag similar to this `<script src='node_modules/stencil-voice2text/dist/voice2text.js></script>` in the head of your index.html
-- Then you can use the element `<st-voice2text>` anywhere in your template, JSX, html etc
+- Then you can use the element like this:
+```html
+<st-voice2text>
+    <input type="text"></input>
+</st-voice2text>
+```
 
 ### In a stencil-starter app
 - Run `npm install stencil-voice2text --save`
 - Add `{ name: 'stencil-voice2text' }` to your [collections](https://github.com/ionic-team/stencil-starter/blob/master/stencil.config.js#L5)
-- Then you can use the element `<st-voice2text>` anywhere in your template, JSX, html etc
-
-### Make it works
-
-To make this component works, you should pass an input (or ion-input if you are working with ionic) because at the moment an empty component and add a default input is not working.
-
-Here is an example with an input:
-
+- Then you can use the element like this:
 ```html
-<st-voice2text continuous={true}>
+<st-voice2text>
     <input type="text"></input>
 </st-voice2text>
 ```
 
-Here is an example with an ion-input:
-
-> I assume you have imported ionic collection
-
-```html
-<st-voice2text continuous={true}>
-    <ion-input></ion-input>
-</st-voice2text>
-```
+> You can use it with ion input too, just import the ionic core collection:
+>```html
+><st-voice2text>
+>    <ion-input></ion-input>
+></st-voice2text>
+>```
 
 ## Parameters
 
-### enabled
-
-The default value for enabled is true, meaning that the voice to text is available.
-
-```html
-<st-voice2text enabled={true}>
-    <input type="text"></input>
-</st-voice2text>
-```
-
-### continuous
-
-The default value for continuous is false, meaning that when the user stops talking, speech recognition will end.
-
-```html
-<st-voice2text continuous={true}>
-    <input type="text"></input>
-</st-voice2text>
-```
-
-### lang
-
-The default value for lang is `en-US`, meaning that the component will recognize english if no one is passed as attribute.
-
-```html
-<st-voice2text lang="es-ES">
-    <input type="text"></input>
-</st-voice2text>
-```
+Attribute | Default | Doc
+------------ | ------------- | -------------
+enabled | true | Make the speech recognition available or not
+continuous | false | Make the speech recognition ends when the user stops talking or continue.
+lang | `en-US` | Make the speech recognition use english.

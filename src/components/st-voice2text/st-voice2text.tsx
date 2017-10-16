@@ -28,6 +28,7 @@ export class Voice2Text {
 
       this.recognition.onerror = (err) => {
         console.error(err);
+        this.recording = false;
       };
       this.recognition.onresult = (event) => {
         this.input.value = event.results[0][0].transcript;

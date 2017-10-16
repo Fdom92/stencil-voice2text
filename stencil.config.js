@@ -3,6 +3,9 @@ exports.config = {
   generateDistribution: true,
   bundles: [
     { components: ['st-voice2text'] }
+  ],
+  copy: [
+    { src: 'assets', dest: 'assets' }
   ]
 };
 
