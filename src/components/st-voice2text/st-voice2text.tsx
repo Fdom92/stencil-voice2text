@@ -47,18 +47,19 @@ export class Voice2Text {
   }
 
   render() {
-    if (this.existApi) {
-      return (
-        <div class="container">
-          <slot/>
-            <button type="button" class="voice2text-start" onClick={() => this.start()}>
-              <img src="../assets/microphone.svg" alt="Start speech recognition button"/>
-            </button>
-            <button type="button" class="voice2text-stop inactive" onClick={() => this.stop()}>
-              <img src="../assets/muted.svg" alt="Stop speech recognition button"/>
-            </button>
-        </div>
-      );
-    }
+    return (
+      <div class="container">
+        <slot/>
+        {this.existApi &&
+        <div class="buttons">
+          <button type="button" class="voice2text-start" onClick={() => this.start()}>
+            <img src="../assets/microphone.svg" alt="Start speech recognition button"/>
+          </button>
+          <button type="button" class="voice2text-stop inactive" onClick={() => this.stop()}>
+            <img src="../assets/muted.svg" alt="Stop speech recognition button"/>
+          </button>
+        </div>}
+      </div>
+    );
   }
 }
