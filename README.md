@@ -81,11 +81,3 @@ The default value for lang is `en-US`, meaning that the component will recognize
     <input type="text"></input>
 </st-voice2text>
 ```
-
-## Customize
-
-You can customize it with this css classes:
-
-#### inactive
-
-This class is used to show or hide the button that is not used. If you start recording, the start button will have the inactive class.
