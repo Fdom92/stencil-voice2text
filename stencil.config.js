@@ -4,9 +4,6 @@ exports.config = {
   bundles: [
     { components: ['st-voice2text'] }
   ],
-  copy: [
-    { src: 'assets', dest: 'assets' }
-  ]
 };
 
 exports.devServer = {
