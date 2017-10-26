@@ -60,10 +60,8 @@ export class Voice2Text {
     if (this.recognition) {
       dom.push(
         <button type="button" class="voice2text-start" onClick={() => this.start()}>
-          <img src="../assets/microphone.svg" alt="Start speech recognition button" />
         </button>,
         <button type="button" class="voice2text-stop" onClick={() => this.stop()}>
-          <img src="../assets/muted.svg" alt="Stop speech recognition button" />
         </button>
       );
     }
