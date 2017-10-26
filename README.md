@@ -62,7 +62,7 @@ npm start
 
 ## Parameters
 
-Attribute | Default | Doc
+Attribute | Default | Description
 ------------ | ------------- | -------------
 enabled | true | Make the speech recognition available or not
 continuous | false | Make the speech recognition ends when the user stops talking or continue.
