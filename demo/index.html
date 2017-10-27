@@ -4,13 +4,32 @@
   <title>Voice 2 Text</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
-  <script src='https://unpkg.com/stencil-voice2text@latest/dist/voice2text.js'></script>
+
+  <script preload src='https://unpkg.com/stencil-voice2text@latest/dist/voice2text.js'></script>
+
+  <link rel="stylesheet" type="text/css" href="main.css">
+
 </head>
 <body>
 
-  <st-voice2text lang="en-US">
-    <input type="text"></input>
-  </st-voice2text>
+  <h2 class="demo-title">Voice to text demo page</h2>
+
+  <p class="demo-one-text">This is a demo page for the voice to text component built with stencil,
+    try clicking on the microphone and say: <label>Stencil rocks</label></p>
+
+  <div class="container">
+      <st-voice2text lang="en-US">
+          <input id="voice-input" type="text"></input>
+        </st-voice2text>
+        <button id="check-button" type="button">Check!</button>
+  </div>
 
 </body>
+<script>
+  var button = document.getElementById('check-button');
+  button.addEventListener('click', function() {
+    var input = document.getElementById('voice-input');
+    input.value === 'stencil rocks' && console.log('You did it!');
+  })
+</script>
 </html>
