@@ -4,33 +4,35 @@
  * and imports for stencil collections that might be configured in your stencil.config.js file
  */
 
-import { Voice2Text as StVoice2text } from './components/st-voice2text/st-voice2text';
 
-interface HTMLStVoice2textElement extends StVoice2text, HTMLElement {
-}
-declare var HTMLStVoice2textElement: {
-  prototype: HTMLStVoice2textElement;
-  new (): HTMLStVoice2textElement;
-};
+import {
+  Voice2Text as StVoice2text
+} from './components/st-voice2text/st-voice2text';
+
 declare global {
+  interface HTMLStVoice2textElement extends StVoice2text, HTMLElement {
+  }
+  var HTMLStVoice2textElement: {
+    prototype: HTMLStVoice2textElement;
+    new (): HTMLStVoice2textElement;
+  };
   interface HTMLElementTagNameMap {
-      "st-voice2text": HTMLStVoice2textElement;
+    "st-voice2text": HTMLStVoice2textElement;
   }
   interface ElementTagNameMap {
-      "st-voice2text": HTMLStVoice2textElement;
+    "st-voice2text": HTMLStVoice2textElement;
   }
   namespace JSX {
-      interface IntrinsicElements {
-          "st-voice2text": JSXElements.StVoice2textAttributes;
-      }
+    interface IntrinsicElements {
+      "st-voice2text": JSXElements.StVoice2textAttributes;
+    }
   }
   namespace JSXElements {
-      export interface StVoice2textAttributes extends HTMLAttributes {
-        
-          enabled?: any,
-          lang?: any,
-          continuous?: any
-      }
+    export interface StVoice2textAttributes extends HTMLAttributes {
+      continuous?: boolean;
+      enabled?: boolean;
+      lang?: string;
+    }
   }
 }
 

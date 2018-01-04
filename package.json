@@ -2,8 +2,8 @@
   "name": "stencil-voice2text",
   "version": "0.0.7",
   "description": "Voice 2 text component built with Stencil",
-  "main": "dist/collection/index.js",
-  "types": "dist/collection/index.d.ts",
+  "main": "dist/voice2text.js",
+  "types": "dist/types/components.d.ts",
   "collection": "dist/collection/collection-manifest.json",
   "files": [
     "dist/"
@@ -18,12 +18,12 @@
     "test.watch": "jest --watch --no-cache"
   },
   "dependencies": {
-    "@stencil/core": "0.0.6-4",
+    "@stencil/core": "0.1.1-0",
     "@types/webspeechapi": "0.0.28"
   },
   "devDependencies": {
-    "@stencil/dev-server": "latest",
-    "@stencil/utils": "latest"
+    "@stencil/dev-server": "0.0.17",
+    "@stencil/utils": "0.0.4"
   },
   "repository": {
     "type": "git",
