@@ -1,6 +1,6 @@
 {
   "name": "stencil-voice2text",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Voice 2 text component built with Stencil",
   "main": "dist/voice2text.js",
   "types": "dist/types/components.d.ts",
