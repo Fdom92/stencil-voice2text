@@ -1,6 +1,6 @@
 {
   "name": "stencil-voice2text",
-  "version": "0.0.8",
+  "version": "1.0.0",
   "description": "Voice 2 text component built with Stencil",
   "main": "dist/voice2text.js",
   "types": "dist/types/components.d.ts",
@@ -18,7 +18,7 @@
     "test.watch": "jest --watch --no-cache"
   },
   "dependencies": {
-    "@stencil/core": "0.1.1-0",
+    "@stencil/core": "0.11.4",
     "@types/webspeechapi": "0.0.28"
   },
   "devDependencies": {
@@ -29,7 +29,7 @@
     "type": "git",
     "url": "git+https://github.com/Fdom92/stencil-voice2text.git"
   },
-  "author": "Ionic Team",
+  "author": "Fernando del olmo martin",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Fdom92/stencil-voice2text"

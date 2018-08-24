@@ -2,7 +2,7 @@
 
 # stencil-voice2text
 
-st-voice2text is a web component built with [Stencil](https://stenciljs.com/) that allows you to use the [Web Speech API](https://developers.google.com/web/updates/2013/01/Voice-Driven-Web-Apps-Introduction-to-the-Web-Speech-API).
+wc-voice2text is a web component built with [Stencil](https://stenciljs.com/) that allows you to use the [Web Speech API](https://developers.google.com/web/updates/2013/01/Voice-Driven-Web-Apps-Introduction-to-the-Web-Speech-API).
 
 ## Getting Started
 
@@ -28,9 +28,9 @@ npm start
 - Put `<script src='https://unpkg.com/stencil-voice2text@latest/dist/voice2text.js'></script>` in the head of your index.html
 - Then you can use the element like this:
 ```html
-<st-voice2text>
+<wc-voice2text>
     <input type="text"></input>
-</st-voice2text>
+</wc-voice2text>
 ```
 
 ### Node Modules
@@ -38,9 +38,9 @@ npm start
 - Put a script tag similar to this `<script src='node_modules/stencil-voice2text/dist/voice2text.js></script>` in the head of your index.html
 - Then you can use the element like this:
 ```html
-<st-voice2text>
+<wc-voice2text>
     <input type="text"></input>
-</st-voice2text>
+</wc-voice2text>
 ```
 
 ### In a stencil-starter app
@@ -48,16 +48,16 @@ npm start
 - Add `{ name: 'stencil-voice2text' }` to your [collections](https://github.com/ionic-team/stencil-starter/blob/master/stencil.config.js#L5)
 - Then you can use the element like this:
 ```html
-<st-voice2text>
+<wc-voice2text>
     <input type="text"></input>
-</st-voice2text>
+</wc-voice2text>
 ```
 
 > You can use it with ion input too, just import the ionic core collection:
 >```html
-><st-voice2text>
+><wc-voice2text>
 >    <ion-input></ion-input>
-></st-voice2text>
+></wc-voice2text>
 >```
 
 ## Parameters

@@ -1,11 +1,10 @@
 import { Component, State, Prop, Element } from '@stencil/core';
 
-
 @Component({
-  tag: 'st-voice2text',
-  styleUrl: 'st-voice2text.scss'
+  tag: 'wc-voice2text',
+  styleUrl: 'wc-voice2text.css'
 })
-export class Voice2Text {
+export class WCVoice2Text {
 
   @Element() element;
 

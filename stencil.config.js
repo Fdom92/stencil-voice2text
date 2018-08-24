@@ -1,12 +1,10 @@
 exports.config = {
   namespace: 'voice2text',
-  generateDistribution: true,
   bundles: [
-    { components: ['st-voice2text'] }
+    { components: ['wc-voice2text'] }
   ],
+  outputTargets: [
+    { type: 'www' },
+    { type: 'dist' }
+  ]
 };
-
-exports.devServer = {
-  root: 'www',
-  watchGlob: '**/**'
-}

@@ -11,9 +11,11 @@ log.txt
 *.sublime-workspace
 
 .idea/
+.stencil/
 .vscode/
 .sass-cache/
 .versions/
+www/
 node_modules/
 $RECYCLE.BIN/
 
